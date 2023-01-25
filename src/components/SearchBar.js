@@ -8,6 +8,11 @@ class SearchBar extends React.Component {
     onInputChange(event) {
         console.log(event.target.value)
     }
+
+    onInputClick() {
+        console.log('Click')
+    }
+
     /*
     we dont add the () on this.onInputChange bc we dont want it to be called
     when the component is first rendered, so we only pass it the reference bc its an event
@@ -19,7 +24,11 @@ class SearchBar extends React.Component {
                 <form className="ui form">
                     <div className="field">
                         <label>Image Search</label>
-                        <input type="text" onChange={this.onInputChange}></input>
+                        <input
+                            type="text"
+                            onChange={this.onInputChange}
+                        /*onClick={this.onInputClick} */
+                        />
                     </div>
                 </form>
             </div>
