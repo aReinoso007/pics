@@ -5,14 +5,16 @@ Here we will use a class component to be able to use state for user input
 */
 class SearchBar extends React.Component {
 
-    onInputChange(event) {
-        console.log(event.target.value)
-    }
+    state = { term: '' };
 
-    onInputClick() {
+    /* onInputChange(event) {
+        console.log(event.target.value)
+    } */
+
+    /* onInputClick() {
         console.log('Click')
     }
-
+ */
     /*
     we dont add the () on this.onInputChange bc we dont want it to be called
     when the component is first rendered, so we only pass it the reference bc its an event
@@ -26,7 +28,9 @@ class SearchBar extends React.Component {
                         <label>Image Search</label>
                         <input
                             type="text"
-                            onChange={this.onInputChange}
+                            value={this.state.term}
+                            onChange={(e) => this.setState({ term: e.target.value })}
+                        /*onChange={this.onInputChange}*/
                         /*onClick={this.onInputClick} */
                         />
                     </div>
