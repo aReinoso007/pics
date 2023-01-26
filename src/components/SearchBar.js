@@ -20,7 +20,7 @@ class SearchBar extends React.Component {
     /*Custom logic for form so it does not refresh the page whenever we hit enter */
     onFormSubmit = (event) => {
         event.preventDefault();
-        console.log(this.state.term)
+        this.props.onSubmit(this.state.term)
     }
 
     render() {
