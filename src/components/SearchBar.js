@@ -9,21 +9,24 @@ class SearchBar extends React.Component {
 
     /* onInputChange(event) {
         console.log(event.target.value)
-    } */
-
-    /* onInputClick() {
+    } 
+    onInputClick() {
         console.log('Click')
     }
- */
-    /*
     we dont add the () on this.onInputChange bc we dont want it to be called
     when the component is first rendered, so we only pass it the reference bc its an event
     handler with callbacks
     */
+    /*Custom logic for form so it does not refresh the page whenever we hit enter */
+    onFormSubmit = (event) => {
+        event.preventDefault();
+        console.log(this.state.term)
+    }
+
     render() {
         return (
             <div className="ui segment">
-                <form className="ui form">
+                <form onSubmit={this.onFormSubmit} className="ui form">
                     <div className="field">
                         <label>Image Search</label>
                         <input
