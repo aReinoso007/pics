@@ -20,14 +20,14 @@ We have to reach into the DOM to get the value of the input, so without using st
 ### ``` this ``` inside of a class
 instance of SearchBar, we can use  ``` this ``` to reference the class and get properties and more.
 So we use arrow functions to always reference the correct value rather than the value of the function.
-```
+```javascript
 functionName = (event) => {
     this.state.propName
 }
 ```
 Or we could use constructors to always override the initialized props. 
 There is a third way
-```
+```javascript
 onFormSubmit(event){
     event.preventDefault();
     console.log(this.state.term)
