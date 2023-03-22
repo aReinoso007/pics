@@ -2,6 +2,7 @@ import React from "react";
 import unsplash from "../api/unsplash";
 import SearchBar from "./SearchBar";
 import ImageList from "./ImageList";
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 
 class App extends React.Component {
 
@@ -19,6 +20,8 @@ class App extends React.Component {
     render() {
         return (
             <div className="ui container" style={{ marginTop: '30px' }}>
+                <Router>
+                </Router>
                 <SearchBar onSubmit={this.onSearchSubmit} />
                 <ImageList images={this.state.images} />
             </div>
