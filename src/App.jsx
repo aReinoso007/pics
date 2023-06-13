@@ -1,8 +1,8 @@
 import React from "react";
-import unsplash from "../api/unsplash";
-import SearchBar from "./SearchBar";
-import ImageList from "./ImageList";
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import unsplash from "./api/unsplash";
+import SearchBar from "./components/SearchBar";
+import ImageList from "./components/ImageList";
+import { BrowserRouter as Router} from "react-router-dom";
 
 class App extends React.Component {
 
