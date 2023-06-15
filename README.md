@@ -199,6 +199,7 @@ In the App.jsx
 ```javascript
 import unsplash from "./api/unsplash";
 function App(){
+    //using useState([]) => empty array at first to then pass down the filled array
     const [images, setImages]= useState([]);
     const handleSubmit = async(term)=>{
         const result = await unsplash.get('/search/photos',{

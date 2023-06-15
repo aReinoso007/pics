@@ -1,5 +1,12 @@
-function ImageShow() {
-    return <div>ImageShow</div>
+import { useState } from "react";
+
+function ImageShow({image}) {
+    
+    return (
+    <div>
+        {image.id}
+    </div>
+    )
 }
 
 export default ImageShow;
