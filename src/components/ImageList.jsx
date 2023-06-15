@@ -7,7 +7,7 @@ function based component
 const ImageList = ({images}) => {
 
     const renderedImages = images.map((image)=>{
-        return <ImageShow image={image}/>
+        return <ImageShow key={image.id} image={image}/>
     })
 
     if(images.length === 0) return <div>Ingrese algo para buscar</div>

@@ -221,3 +221,32 @@ function App(){
     }
 }
 ```
+## Working with lists
+Whenever we work with a list we gotta use key to differentiate each element.
+So when we map all images received in ImageList component we map them to
+a individual element of ImageShow component and pass the key:
+```javascript
+/*since we know where getting passed a props object that contains images we 
+we destructure the object and get the images using {propName}
+*/
+const ImageList = ({images})=>{
+    const renderedImages = images.map((image)=>{
+        return <ImageShow key={image.id} image={image}/>
+    })
+
+    if(images.length === 0) return <div>Ingrese algo para buscar</div>
+    return(
+        <div>
+          {renderedImages}
+        </div>
+    )
+}
+
+const ImageShow({image})=>{
+    return (
+        <div>
+            {image.alt_description}
+        </div>
+    )
+}
+```
