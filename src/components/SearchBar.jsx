@@ -1,4 +1,5 @@
 import React from "react";
+import './SearchBar.css'
 
 /*
 Here we will use a class component to be able to use state for user input
@@ -22,7 +23,7 @@ class SearchBar extends React.Component {
             <div className="ui segment">
                 <form onSubmit={this.onFormSubmit} className="ui form">
                     <div className="field">
-                        <label>Image Search</label>
+                        <label>Enter search term</label>
                         <input
                             type="text"
                             value={this.state.term}

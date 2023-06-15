@@ -227,7 +227,7 @@ So when we map all images received in ImageList component we map them to
 a individual element of ImageShow component and pass the key. 
 Any time we use ```map``` or for loop we gotta add keys. 
 #### Important Note
-Since key is added to the upper Most element if we map the result and we wrap the component with a div then this wont work as well since the upper most element would be the ```div```, if we want it to work this way then we move the key prop to the div like so ``` <div key={image.id}> ```:
+* Since key is added to the upper Most element if we map the result and we wrap the component with a div then this wont work as well since the upper most element would be the ```div```, if we want it to work this way then we move the key prop to the div like so ``` <div key={image.id}> ```:
 ```javascript
  const renderedImages = images.map((image)=>{
         return (
@@ -237,9 +237,11 @@ Since key is added to the upper Most element if we map the result and we wrap th
         )
     })
 ```
+* keys must be unique strings or numbers.
+
 This would be the correct way of doing so:
 ```javascript
-/*since we know where getting passed a props object that contains images we 
+/*since we know we're getting passed a props object that contains images we 
 we destructure the object and get the images using {propName}
 */
 const ImageList = ({images})=>{
@@ -263,3 +265,5 @@ const ImageShow({image})=>{
     )
 }
 ```
+Lets say the array we're working with does not have UID, then we can generate one
+ourselves

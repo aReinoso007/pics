@@ -1,5 +1,6 @@
 import React from "react";
 import ImageShow from "./ImageShow";
+import './ImageList.css'
 
 /*
 function based component
@@ -12,7 +13,7 @@ const ImageList = ({images}) => {
 
     if(images.length === 0) return <div>Ingrese algo para buscar</div>
     return(
-        <div>
+        <div className="image-list">
           {renderedImages}
         </div>
     )
