@@ -7,17 +7,11 @@ class SearchBar extends React.Component {
 
     state = { term: '' };
 
-    /* onInputChange(event) {
-        console.log(event.target.value)
-    } 
-    onInputClick() {
-        console.log('Click')
-    }
+    /*
     we dont add the () on this.onInputChange bc we dont want it to be called
     when the component is first rendered, so we only pass it the reference bc its an event
     handler with callbacks
     */
-    /*Custom logic for form so it does not refresh the page whenever we hit enter */
     onFormSubmit = (event) => {
         event.preventDefault();
         this.props.onSubmit(this.state.term);
@@ -33,8 +27,6 @@ class SearchBar extends React.Component {
                             type="text"
                             value={this.state.term}
                             onChange={(e) => this.setState({ term: e.target.value })}
-                        /*onChange={this.onInputChange}*/
-                        /*onClick={this.onInputClick} */
                         />
                     </div>
                 </form>
