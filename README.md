@@ -176,7 +176,7 @@ function SearchBar({onSubmit})=>{
 ## Returning the search
 In the App.jsx
 ```javascript
-onSearchSubmit = async (term) => {
+    onSearchSubmit = async (term) => {
         const response = await unsplash.get('/search/photos', {
             params: {
                 query: term
@@ -193,4 +193,30 @@ onSearchSubmit = async (term) => {
             </div>
         );
     }
+```
+
+## Passing image list to component
+```javascript
+import unsplash from "./api/unsplash";
+function App(){
+    const [images, setImages]= useState([]);
+    const handleSubmit = async(term)=>{
+        const result = await unsplash.get('/search/photos',{
+            params:{
+                query: term
+            }
+        });
+        setImages(result.data.results)
+    }
+    render() {
+        return (
+            <div className="ui container" style={{ marginTop: '30px' }}>
+                <Router>
+                </Router>
+                <SearchBar onSubmit={handleSubmit} />
+                <ImageList images={images} />
+            </div>
+        );
+    }
+}
 ```
