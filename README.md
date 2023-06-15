@@ -38,3 +38,32 @@ onFormSubmit(event){
 </form>
 
 ```
+## Passing props 
+### Parent Component
+``` javascript
+    function App(){
+        const handleSubmit = (term)=>{
+            console.log('term received ', term)
+        };
+
+        return (
+            <div>
+                <SearchBar onSubmit={handleSubmit}>
+            </div>
+        )
+    }
+```
+As shown before, we add the prop ```onSubmit``` to the component
+and pass it an arrow fuction that will receive the value gathered in the child
+component that has the key of ```term```
+### Child Component
+A way to receive props in a function component is the following:
+```javascript
+function SearchBar({onSubmit})=>{
+
+    const handleFormSubmit = (event) =>{
+        event.preventDefault(); //to not reload the page when we hit enter
+        onSubmit('hardCodedProp')
+    }
+}
+```
