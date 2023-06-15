@@ -60,10 +60,24 @@ component that has the key of ```term```
 A way to receive props in a function component is the following:
 ```javascript
 function SearchBar({onSubmit})=>{
-
+    //here we initiliaze the prop
+    state = {term: ''}
     const handleFormSubmit = (event) =>{
         event.preventDefault(); //to not reload the page when we hit enter
-        onSubmit('hardCodedProp')
-    }
+        onSubmit(this.state.term)
+    };
+
+    return (
+        <div>
+            <form onSubmit={handleFormSubmit}>
+                <input
+                    type="text"
+                    value={this.state.term}
+                    onChange={(e) => ({ term: e.target.value })}
+                />
+            </form>
+        </div>
+    )
+
 }
 ```
