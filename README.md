@@ -227,7 +227,7 @@ So when we map all images received in ImageList component we map them to
 a individual element of ImageShow component and pass the key. 
 Any time we use ```map``` or for loop we gotta add keys. 
 #### Important Note
-Since key is added to the upper Most element if we map the result and we wrap the component with a div then this wont work as well since the upper most element would be the ```div```, so this would not work properly:
+Since key is added to the upper Most element if we map the result and we wrap the component with a div then this wont work as well since the upper most element would be the ```div```, if we want it to work this way then we move the key prop to the div like so ``` <div key={image.id}> ```:
 ```javascript
  const renderedImages = images.map((image)=>{
         return (
