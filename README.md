@@ -69,9 +69,6 @@ function SearchBar({onSubmit})=>{
         <div>
             <form onSubmit={handleFormSubmit}>
                 <input
-                    type="text"
-                    value={this.state.term}
-                    onChange={(e) => ({ term: e.target.value })}
                 />
             </form>
         </div>
@@ -167,7 +164,7 @@ function SearchBar({onSubmit})=>{
             <div>
                 <form onSubmit={handleFormSubmit}>
                     <input
-                    //setting the value
+                    //setting the value to force the component to show the input value
                         value={term}
                         onChange={handleChange}
                     />
