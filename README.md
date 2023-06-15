@@ -60,11 +60,9 @@ component that has the key of ```term```
 A way to receive props in a function component is the following:
 ```javascript
 function SearchBar({onSubmit})=>{
-    //here we initiliaze the prop
-    state = {term: ''}
     const handleFormSubmit = (event) =>{
         event.preventDefault(); //to not reload the page when we hit enter
-        onSubmit(this.state.term)
+        onSubmit('')
     };
 
     return (
@@ -81,3 +79,100 @@ function SearchBar({onSubmit})=>{
 
 }
 ```
+#### Working with inputs
+
+* create a new piece of state using ```useState```
+    ```javascript
+    const [term, setTerm] = useState('');
+    ```
+* create an event handler to watch for the ```onChangeEvent``` event
+    ```javascript
+    const handleChange = ()=>{
+
+    };
+
+    return (
+        <div>
+            <form onSubmit={handleFormSubmit}>
+                <input
+                    onChange={handleChange}
+                />
+            </form>
+        </div>
+    )
+    ```
+* When the ```onChange``` event fires, get the value from the input
+     ```javascript
+    function SearchBar({onSubmit})=>{
+        const [term, setTerm] = useState('');
+        const handleFormSubmit = (event) =>{
+            event.preventDefault(); //to not reload the page when we hit enter
+            onSubmit('')
+        };
+        const handleChange = (event)=>{
+            //getting value from the input
+         console.log(event.target.value)
+        };
+
+        return (
+            <div>
+                <form onSubmit={handleFormSubmit}>
+                    <input
+                        onChange={handleChange}
+                    />
+                </form>
+            </div>
+        )
+    }
+    ```
+* Take the value from the input and use it to update the state
+     ```javascript
+    function SearchBar({onSubmit})=>{
+        const [term, setTerm] = useState('');
+
+        const handleFormSubmit = (event) =>{
+            event.preventDefault();
+            onSubmit('')
+        };
+        const handleChange = (event)=>{
+            //Updating the value
+            setTerm(event.target.value);
+        };
+
+        return (
+            <div>
+                <form onSubmit={handleFormSubmit}>
+                    <input
+                        onChange={handleChange}
+                    />
+                </form>
+            </div>
+        )
+    }
+    ```
+* Pass the state to the input as the value prop
+    ```javascript
+    function SearchBar({onSubmit})=>{
+        const [term, setTerm] = useState('');
+
+        const handleFormSubmit = (event) =>{
+            event.preventDefault();
+            onSubmit('')
+        };
+        const handleChange = (event)=>{
+            setTerm(event.target.value);
+        };
+
+        return (
+            <div>
+                <form onSubmit={handleFormSubmit}>
+                    <input
+                    //setting the value
+                        value={term}
+                        onChange={handleChange}
+                    />
+                </form>
+            </div>
+        )
+    }
+    ```
